@@ -1,4 +1,4 @@
-Этот проект - ряд упражнений на изучение java из раздела "день 01" курса по изучению java - java piscine в school 21.<br/>
+## day_01<br/>
 В проект предлагает изучить такие темы:<br/>
 SOLID: single resposibility principle<br/>
 Integer, String, UUID, enumerations, interfaces, Collections, OOP<br/>
