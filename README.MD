@@ -10,9 +10,9 @@ Integer, String, UUID, enumerations, interfaces, Collections, OOP<br/>
 ![Снимок экрана 2021-07-23 в 19 27 08](https://user-images.githubusercontent.com/39241797/126818244-f3cdf738-53dd-4bea-91cc-2a34ce9465ef.png)
 ![Снимок экрана 2021-07-23 в 19 26 55](https://user-images.githubusercontent.com/39241797/126818250-042b770f-2f89-44c7-aa8f-718a3da38d24.png)
 ![Снимок экрана 2021-07-23 в 19 27 29](https://user-images.githubusercontent.com/39241797/126818255-fa227fcf-6293-40d2-a90c-ff3e05e60ad8.png)
-##DAY_02
+## DAY_02
 ASDFASDF<br/>
 SDAFASF<br/>
-##DAY_03
+## DAY_03
 ASDFASDF<br/>
 SDAFASF<br/>
