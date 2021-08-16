@@ -2,20 +2,19 @@ import java.lang.InterruptedException;
 
 public class Egg implements Runnable {
     public void run() {
-        for (int i = 0; i < Program.numberOfIterations; i++)
-        {
-            synchronized (Lock.getLock()) {
+        int i = 0;
+        synchronized (Program.class) {
+            while (Program.numberOfIterations != 0) {
                 System.out.println("Egg");
-                Lock.getLock().notify();
-                if (i < Program.numberOfIterations - 1)
-                {
-                    try {
-                        Lock.getLock().wait();
-                    } catch (InterruptedException ex) {
-                        System.err.println(ex);
-                    }
+                Program.numberOfIterations--;
+                Program.class.notify();
+                try {
+                    Program.class.wait();
+                } catch (InterruptedException ex) {
+                    System.err.println(ex);
                 }
             }
+            Program.class.notify();
         }
     }
 }

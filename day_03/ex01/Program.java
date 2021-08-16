@@ -1,7 +1,6 @@
 import java.lang.Integer;
 import java.lang.NumberFormatException;
 import java.lang.IndexOutOfBoundsException;
-import java.lang.Integer;
 
 public class Program {
     public static void main(String[] av) {
@@ -9,13 +8,13 @@ public class Program {
             System.err.println("Error: program requires exactly one argument of form \"--count=50\"");
             System.exit(-1);
         }
-        Integer num = parseNumbrOfIterations(av[0]);
+        Integer num = parseNumberOfIterations(av[0]);
         if (num == null)
         {
             System.err.println("Error: failed to parse number of iterations");
             System.exit(-1);
         }
-        Program.numberOfIterations = num.intValue();
+        Program.numberOfIterations = num.intValue() * 2;
         Runnable hen = new Hen();
         Thread henThread = new Thread(hen);
         Runnable egg = new Egg();
@@ -24,7 +23,7 @@ public class Program {
         henThread.start();
     }
     public static int numberOfIterations = 50;
-    private static Integer parseNumbrOfIterations(String arg) {
+    private static Integer parseNumberOfIterations(String arg) {
         try {
             int idx = arg.indexOf("=");
             String flag = arg.substring(0, idx);
