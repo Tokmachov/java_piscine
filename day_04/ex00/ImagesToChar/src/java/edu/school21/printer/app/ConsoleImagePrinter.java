@@ -1,9 +1,6 @@
 package edu.school21.printer.app;
 import edu.school21.printer.logic.*;
-
 import java.io.*;
-import java.lang.IndexOutOfBoundsException;
-import java.lang.NullPointerException;
 
 public class ConsoleImagePrinter {
     public static void main(String[] av) {

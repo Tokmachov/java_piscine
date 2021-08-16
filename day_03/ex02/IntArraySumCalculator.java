@@ -1,4 +1,3 @@
-import java.lang.Integer;
 import java.util.LinkedList;
 
 public class IntArraySumCalculator {
@@ -39,7 +38,11 @@ public class IntArraySumCalculator {
             result += calc.getResult();
     }
     private int numOfArrayPositionsForThread(int numberOfThreads) {
-        return array.length / numberOfThreads;
+        int nextDividableByNumberOfThreads = array.length;
+        while (nextDividableByNumberOfThreads % numberOfThreads != 0) {
+            nextDividableByNumberOfThreads += 1;
+        }
+        return nextDividableByNumberOfThreads / numberOfThreads;
     }
     public int getResult() {
         return result;

@@ -1,4 +1,6 @@
 mkdir target
-javac -cp target -sourcepath src/java -d target src/java/edu/school21/printer/app/ConsoleImagePrinter.java
-cp it.bmp target/edu/school21/printer/app
-java -cp 'target' edu.school21.printer.app.ConsoleImagePrinter . 0 it.bmp
+find ./src/java -type f -name "*.java" > project_files.txt
+javac -cp target -sourcepath src/java -d target @project_files.txt
+java -cp target edu.school21.printer.app.ConsoleImagePrinter . 0 it.bmp
+rm -rf target
+rm project_files.txt
