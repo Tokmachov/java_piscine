@@ -1,4 +1,8 @@
-mkdir -p target/resources
-javac -d target -cp target -sourcepath src/java src/java/edu/school21/printer/app/ConsoleImagePrinter.java
-cp src/java/resources/it.bmp target/resources
-jar cfm target/images-to-chars-printer.jar src/Manifest.txt -C target/*
+rm -rf target
+rm project_files_list.txt
+mkdir -p target
+cp -r src/resources target
+find src/java -type f -name "*.java" > project_files_list.txt
+javac -cp target -sourcepath src/java -d target @project_files_list.txt
+jar cfmv target/images-to-chars-printer.jar src/manifest.txt -C target .
+java -jar target/images-to-chars-printer.jar . 0

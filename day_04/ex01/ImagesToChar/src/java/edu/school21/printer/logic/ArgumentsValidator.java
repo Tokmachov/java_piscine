@@ -1,7 +1,5 @@
 package edu.school21.printer.logic;
 
-import java.io.*;
-
 public class ArgumentsValidator {
     public static boolean areArgumentsValid(String[] av) {
         if (av.length != 2)

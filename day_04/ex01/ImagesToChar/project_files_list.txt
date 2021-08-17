@@ -1,0 +1,5 @@
+src/java/edu/school21/printer/app/ConsoleImagePrinter.java
+src/java/edu/school21/printer/logic/BmpToCharImageConverter.java
+src/java/edu/school21/printer/logic/ArgumentsParser.java
+src/java/edu/school21/printer/logic/ArgumentsValidator.java
+src/java/edu/school21/printer/logic/Printer.java

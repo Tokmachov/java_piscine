@@ -21,12 +21,8 @@ public class ArgumentsParser {
             return null;
         }
     }
-    public static File getFile(String[] av) throws NullPointerException {
-        try {
-            return new File(av[2]);
-        } catch (NullPointerException ex) {
-            System.err.println(ex);
-            return null;
-        }
+    public static File getFile(String[] av) {
+        File f = new File(av[2]);
+        return f;
     }
 }

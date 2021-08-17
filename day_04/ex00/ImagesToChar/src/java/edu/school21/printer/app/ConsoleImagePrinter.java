@@ -12,7 +12,7 @@ public class ConsoleImagePrinter {
         Character black = ArgumentsParser.getBlackPixelChar(av);
         Character white = ArgumentsParser.getWhitePixelChar(av);
         File file = ArgumentsParser.getFile(av);
-        if (black == null || white == null || file == null)
+        if (black == null || white == null || file.exists() == false)
         {
             System.err.println("Error: failed to parse arguments error");
             System.exit(-1);

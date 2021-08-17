@@ -10,8 +10,7 @@ import java.nio.ByteOrder;
  
  public class BmpToCharImageConverter {
     public static int[][] convert(File imagePath) {
-        try {
-            FileImageInputStream f = new FileImageInputStream(imagePath);
+        try (FileImageInputStream f = new FileImageInputStream(imagePath)) {
             f.setByteOrder(ByteOrder.LITTLE_ENDIAN);
             long bpp = getIntValueFromBmpFileAtOffset(f, 28);
             if (bpp != 1)
@@ -31,20 +30,13 @@ import java.nio.ByteOrder;
                 }
                 f.skipBytes(2);
             }
-            f.close();
             return img;
-        } catch (FileNotFoundException ex) {
-            System.err.println(ex);
-            return null;
-        } catch (SecurityException ex) {
-            System.err.println(ex);
-            return null;
         } catch (IOException ex) {
             System.err.println(ex);
             return null;
         }
     }
-        
+
     private static int getIntValueFromBmpFileAtOffset(FileImageInputStream f, int offset) {
         try {
             f.seek(offset);
