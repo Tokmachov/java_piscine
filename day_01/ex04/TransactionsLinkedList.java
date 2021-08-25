@@ -1,6 +1,3 @@
-package edu.school21.moneyTransferApp.model.transaction;
-
-import edu.school21.moneyTransferApp.model.exceptions.TransactionNotFoundException;
 
 import java.util.UUID;
 

@@ -1,10 +1,3 @@
-package edu.school21.moneyTransferApp.model.transaction;
-
-import edu.school21.moneyTransferApp.model.exceptions.IllegalTransactionException;
-import edu.school21.moneyTransferApp.model.exceptions.NegativeTransferAmountException;
-import edu.school21.moneyTransferApp.model.user.User;
-import edu.school21.moneyTransferApp.model.user.UsersArrayList;
-import edu.school21.moneyTransferApp.model.user.UsersList;
 
 import java.util.UUID;
 
@@ -62,7 +55,7 @@ public class TransactionsService {
 
     @Override
     public String toString() {
-        String line1 = "edu.school21.moneyTransferApp.model.transaction.TransactionsService\n";
+        String line1 = "--TransactionsService--\n";
         String line2 = usersList.toString();
         return line1 + line2;
     }

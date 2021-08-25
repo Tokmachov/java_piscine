@@ -1,10 +1,3 @@
-package edu.school21.moneyTransferApp.app;
-
-import edu.school21.moneyTransferApp.model.exceptions.IllegalTransactionException;
-import edu.school21.moneyTransferApp.model.transaction.Transaction;
-import edu.school21.moneyTransferApp.model.transaction.TransactionsList;
-import edu.school21.moneyTransferApp.model.transaction.TransactionsService;
-import edu.school21.moneyTransferApp.model.user.User;
 
 public class Program {
     public static void main(String[] av) {
@@ -35,11 +28,11 @@ public class Program {
         System.out.println("Jos transactions:");
         System.out.println(joe.getTransactionsList());
         System.out.println("---Make illegal transaction test---");
-        System.out.println("---edu.school21.moneyTransferApp.model.user.User has not anough money to transfer---");
+        System.out.println("---User has not anough money to transfer---");
         try {
             service.performTransferTransaction(john.getId(), joe.getId(), 10);
         } catch (IllegalTransactionException ex) {
-            System.out.println("Error: edu.school21.moneyTransferApp.model.exceptions.IllegalTransactionException()");
+            System.out.println("Error: IllegalTransactionException()");
         }
         System.out.println("---perform a transfer transaction test---");
         service.performTransferTransaction(hoe.getId(), joe.getId(), 10);

@@ -1,4 +1,3 @@
-package edu.school21.moneyTransferApp.model.user;
 
 public class UserIdsGenerator {
     public static UserIdsGenerator getInstance() {

@@ -6,6 +6,7 @@ public class App {
         if (av.length != 1) {
             System.err.println("Error: wrong number of arguments");
             System.err.println("Please provide 1 argument --profile=dev or --profile=production");
+            System.exit(-1);
         }
         String mode = parseMode(av);
         if (mode == null) {
@@ -26,9 +27,10 @@ public class App {
             String topMenuString = composeTopMenuString();
             menu.printMessage(topMenuString);
             Integer choice = menu.readIntAnswer();
+            menu.clearBuffer();
             if (choice == null) {
                 menu.printError("Error: number is expected");
-                break ;
+                continue;
             }
             switch (choice) {
                 case 1: performAddUserOperation();
@@ -66,6 +68,7 @@ public class App {
         menu.printMessage("Enter a user name and a balance");
         String name = menu.readStringAnswer();
         Integer balance = menu.readIntAnswer();
+        menu.clearBuffer();
         if (balance == null) {
             menu.printError("Error: number is expected");
             return ;
@@ -81,6 +84,7 @@ public class App {
     private void performViewUserBalancesOperation() {
         menu.printMessage("Enter a user ID");
         Integer id = menu.readIntAnswer();
+        menu.clearBuffer();
         if (id == null) {
             menu.printError("Error: number is expected as user id");
             return ;
@@ -99,6 +103,7 @@ public class App {
         Integer senderId = menu.readIntAnswer();
         Integer recipientId = menu.readIntAnswer();
         Integer transferAmount = menu.readIntAnswer();
+        menu.clearBuffer();
         if (senderId == null || recipientId == null || transferAmount == null) {
             menu.printError("Error: expected to receive 3 numbers. E.g. 1 2 10");
             return ;
@@ -117,6 +122,7 @@ public class App {
     private void performViewAllTransactionsOperation() {
         menu.printMessage("Enter a user ID");
         Integer id = menu.readIntAnswer();
+        menu.clearBuffer();
         if (id == null) {
             menu.printError("Error: number is expected");
             return ;
@@ -141,7 +147,7 @@ public class App {
         Integer userId = menu.readIntAnswer();
         if (userId == null) {
             menu.printError("Error: number is expected");
-            menu.skipUserInput();
+            menu.clearBuffer();
             return ;
         }
         String transactionIdStr = menu.readStringAnswer();
@@ -163,6 +169,11 @@ public class App {
         }
     }
     private void performCheckTransferValidity() {
+        if (!isDevMode) {
+            menu.printError("Error: you are not in dev mode");
+            menu.printError("Please start app in with --profile=dev to select this option");
+            return ;
+        }
         menu.printMessage("Check results:");
         Transaction[] unpairedTransactions = transactionsService.getUnpairedTransactions();
         if (unpairedTransactions.length == 0) {
@@ -178,7 +189,7 @@ public class App {
         int fromUserId = t.getSender().getId();
         int toUserId = t.getRecipient().getId();
         String fromUserName = t.getSender().getName();
-        String toUserName = t.getSender().getName();
+        String toUserName = t.getRecipient().getName();
         String transactionId = t.getId().toString();
         int amount = t.getTransferAmount();
         String str = fromUserName + "(id = " + fromUserId + ") has an unacknowledged transfer id = ";
@@ -196,9 +207,9 @@ public class App {
         return  line1 + line2;
     }
     private String composeTransactionRemovedString(Transaction t) {
-        String userName = t.getSender().getName();
+        String userName = t.getRecipient().getName();
         int amount = t.getTransferAmount();
-        return "Transfer To " + userName + "(id = " + userName + ")" +  amount + " removed";
+        return "Transfer To " + userName + "(id = " + userName + ") " +  amount + " removed";
     }
 
     private static String parseMode(String[] av) {

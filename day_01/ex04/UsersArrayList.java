@@ -1,6 +1,3 @@
-package edu.school21.moneyTransferApp.model.user;
-
-import edu.school21.moneyTransferApp.model.exceptions.UserNotFoundException;
 
 public class UsersArrayList implements UsersList {
     public UsersArrayList() {
@@ -35,7 +32,7 @@ public class UsersArrayList implements UsersList {
     }
     @Override
     public String toString() {
-        String lineOne = "edu.school21.moneyTransferApp.model.user.UsersArrayList\n";
+        String lineOne = "---UsersArrayList---\n";
         String lineTwo = "Has " + this.usersCount + " users\n";
         String lineThree = "Capacity is " + this.usersStorage.length + "\n";
         return lineOne + lineTwo + lineThree;

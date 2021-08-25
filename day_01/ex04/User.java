@@ -1,11 +1,4 @@
-package edu.school21.moneyTransferApp.model.user;
-
 import java.util.UUID;
-
-import edu.school21.moneyTransferApp.model.exceptions.IllegalUserBalanceException;
-import edu.school21.moneyTransferApp.model.transaction.TransactionsLinkedList;
-import edu.school21.moneyTransferApp.model.transaction.Transaction;
-import edu.school21.moneyTransferApp.model.transaction.TransactionsList;
 
 public class User {
     public User(String name, int initialBalance) {
@@ -37,8 +30,8 @@ public class User {
         return transactionsList;
     }
     public String toString() {
-        String lineOne = "edu.school21.moneyTransferApp.model.user.User name: " + this.name + "\n";
-        String lineTwo = "edu.school21.moneyTransferApp.model.user.User id: " + this.identifier;
+        String lineOne = "User name: " + this.name + "\n";
+        String lineTwo = "User id: " + this.identifier;
         return lineOne + lineTwo;
     }
     public boolean hasTransaction(UUID transactionId) {

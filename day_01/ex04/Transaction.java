@@ -1,7 +1,3 @@
-package edu.school21.moneyTransferApp.model.transaction;
-
-import edu.school21.moneyTransferApp.model.exceptions.WrongTransactionAmountException;
-import edu.school21.moneyTransferApp.model.user.User;
 
 import java.util.UUID;
 
@@ -55,7 +51,7 @@ public class Transaction implements Cloneable {
     }
     @Override
     public String toString() {
-        String lineOne = "edu.school21.moneyTransferApp.model.transaction.Transaction: ";
+        String lineOne = "Transaction: ";
         String lineTwo = "ID: " + identifier + " | ";
         String lineThree = "From: " + sender.getName() + " | ";
         String lineFour = "To : " + recipient.getName() + " | ";

@@ -32,6 +32,8 @@ public class Menu {
     public void printMessage(String msg) {
         System.out.println(msg);
     }
-
+    public void clearBuffer() {
+            sc.nextLine();
+    }
     private Scanner sc;
 }

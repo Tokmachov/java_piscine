@@ -69,7 +69,7 @@ public class TransactionsService {
 
     @Override
     public String toString() {
-        String line1 = "edu.school21.moneyTransferApp.model.transaction.TransactionsService\n";
+        String line1 = "TransactionsService\n";
         String line2 = usersList.toString();
         return line1 + line2;
     }
