@@ -31,8 +31,10 @@ public class Program {
         for (int i = 0; i < Program.numberOfIterations; i++)
             System.out.println("Human");
     }
-    public static synchronized void println(String str) {
-        System.out.println(str);
+    public static void println(String str) {
+        synchronized (Program.class) {
+            System.out.println(str);
+        }
     }
     public static int numberOfIterations = 50;
     private static Integer parseNumberOfIterations(String arg) {
