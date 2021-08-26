@@ -32,9 +32,7 @@ public class Program {
             System.out.println("Human");
     }
     public static void println(String str) {
-        synchronized (Program.class) {
             System.out.println(str);
-        }
     }
     public static int numberOfIterations = 50;
     private static Integer parseNumberOfIterations(String arg) {
