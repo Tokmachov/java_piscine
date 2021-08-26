@@ -16,9 +16,9 @@ public class Program {
         IntArraySumCalculator calc = new IntArraySumCalculator(randomIntArray);
         calc.calculateOnSingleThread();
         int singleThreadResult = calc.getResult();
+        System.out.println("Sum: " + singleThreadResult);
         calc.calculateOnMultipleThreads(threadsCount);
         int multipleThreadsResult = calc.getResult();
-        System.out.println("Sum: " + singleThreadResult);
         System.out.println("Sum by threads: " + multipleThreadsResult);
     }
     private static boolean areArgumentsValid(int arrSize, int threadsCount) {
