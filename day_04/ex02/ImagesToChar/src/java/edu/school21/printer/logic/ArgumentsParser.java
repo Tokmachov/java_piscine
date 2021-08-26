@@ -15,24 +15,16 @@ public class ArgumentsParser implements IParameterValidator {
     public String getWhitePixelColor() {
         return whitePixelColor;
     }
-    public void parsePixelColors(String[] cmdLineArgs) {
+    public void parsePixelColors(String[] cmdLineArgs) throws    {
         JCommander jc = new JCommander(this);
-        try {
-            jc.parse(cmdLineArgs);
-            validate("--white", whitePixelColor);
-            validate("--black", blackPixelColor);
-        } catch (ParameterException ex) {
-            System.err.println(ex);
-        }
-    }
-    public boolean isParsingSuccessful() {
-        return (blackPixelColor != null && whitePixelColor != null);
+        jc.parse(cmdLineArgs);
+        validate("--white", whitePixelColor);
+        validate("--black", blackPixelColor);
     }
     @Override
     public void validate(String s, String s1) throws ParameterException {
-        String[] colors = {"RED", "WHITE", "BLUE"};
-        if (Arrays.asList(colors).contains(s1) == false) {
-            throw new ParameterException("Error: wrong color.\n Allowed colors are: " + Arrays.toString(colors));
+        if (Printer.getAvailableColors().contains(s1) == false) {
+            throw new ParameterException("Error: wrong color.\n Allowed colors are: " + Printer.getAvailableColors());
         }
     }
 }
