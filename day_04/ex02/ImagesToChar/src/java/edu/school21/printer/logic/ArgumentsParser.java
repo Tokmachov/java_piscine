@@ -15,7 +15,7 @@ public class ArgumentsParser implements IParameterValidator {
     public String getWhitePixelColor() {
         return whitePixelColor;
     }
-    public void parsePixelColors(String[] cmdLineArgs) throws    {
+    public void parsePixelColors(String[] cmdLineArgs) throws ParameterException {
         JCommander jc = new JCommander(this);
         jc.parse(cmdLineArgs);
         validate("--white", whitePixelColor);
