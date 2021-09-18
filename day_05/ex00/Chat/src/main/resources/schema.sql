@@ -2,19 +2,17 @@ CREATE SCHEMA IF NOT EXISTS chat_app;
 
 CREATE TABLE IF NOT EXISTS chat_app.user (
     id SERIAL PRIMARY KEY,
-    user_login VARCHAR NOT NULL,
-    user_password VARCHAR NOT NULL
+    user_login TEXT UNIQUE NOT NULL,
+    user_password TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS chat_app.chatroom (
     id SERIAL PRIMARY KEY,
-    room_name VARCHAR NOT NULL,
+    room_name TEXT NOT NULL,
     room_owner_id INT,
     CONSTRAINT fk_users
     FOREIGN KEY(room_owner_id)
     REFERENCES chat_app.user(id)
-    ON DELETE SET NULL
-
 );
 
 CREATE TABLE IF NOT EXISTS chat_app.message (
@@ -25,14 +23,19 @@ CREATE TABLE IF NOT EXISTS chat_app.message (
     room_id INT,
     CONSTRAINT fk_users
     FOREIGN KEY(author_id)
-    REFERENCES chat_app.user(id)
-    ON DELETE SET NULL,
+    REFERENCES chat_app.user(id),   
     CONSTRAINT fk_chatrooms
     FOREIGN KEY(room_id)
     REFERENCES chat_app.chatroom(id)
-    ON DELETE SET NULL
 );
 
+CREATE TABLE IF NOT EXISTS chat_app.chatroom_user(
+    id SERIAL PRIMARY KEY,
+    user_id int NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES chat_app.user(id),
+    room_id int NOT NULL,
+    FOREIGN KEY (room_id) REFERENCES chat_app.chatroom(id)
+);
 
 
 
