@@ -19,3 +19,10 @@ INSERT INTO chat_app.message (message_text, date_and_time, author_id, room_id) V
     ( 'Chill out', '2021-07-06 11:37:07', (SELECT id from chat_app.user WHERE user_login='Iliana Pitts' ), (SELECT id from chat_app.chatroom WHERE room_name='blue room') ),
     ( 'Dance today', '2021-07-06 11:38:07', (SELECT id from chat_app.user WHERE user_login='Justus Shah' ), (SELECT id from chat_app.chatroom WHERE room_name='blue room') ),
     ( 'Don’t panic', '2021-07-06 11:39:07', (SELECT id from chat_app.user WHERE user_login='Ingrid Hawkins' ), (SELECT id from chat_app.chatroom WHERE room_name='blue room') );
+
+INSERT INTO chat_app.chatroom_user (user_id, room_id, user_id) VALUES
+    ((SELECT id from chat_app.user WHERE user_login='Yadiel Vang'), (SELECT id from chat_app.chatroom WHERE room_name='blue room')),
+    ((SELECT id from chat_app.user WHERE user_login='Ingrid Hawkins'), (SELECT id from chat_app.chatroom WHERE room_name='blue room')),
+    ((SELECT id from chat_app.user WHERE user_login='Iliana Pitts'), (SELECT id from chat_app.chatroom WHERE room_name='blue room')),
+    ((SELECT id from chat_app.user WHERE user_login='Yadiel Vang'), (SELECT id from chat_app.chatroom WHERE room_name='white room')),
+    ((SELECT id from chat_app.user WHERE user_login='Iliana Pitts'), (SELECT id from chat_app.chatroom WHERE room_name='white room'));

@@ -1,3 +1,7 @@
+-- noinspection SqlDialectInspectionForFile
+
+-- noinspection SqlNoDataSourceInspectionForFile
+
 CREATE SCHEMA IF NOT EXISTS chat_app;
 
 CREATE TABLE IF NOT EXISTS chat_app.user (
@@ -6,10 +10,10 @@ CREATE TABLE IF NOT EXISTS chat_app.user (
     user_password TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS chat_app.chatroom (
+CREATE TABLE IF NOT EXISTS chat_app.chat_room (
     id SERIAL PRIMARY KEY,
-    room_name TEXT NOT NULL,
-    room_owner_id UNIQUE INT,
+    room_name TEXT NOT NULL UNIQUE,
+    room_owner_id INT NOT NULL,
     CONSTRAINT fk_users
     FOREIGN KEY(room_owner_id)
     REFERENCES chat_app.user(id)
@@ -24,19 +28,19 @@ CREATE TABLE IF NOT EXISTS chat_app.message (
     CONSTRAINT fk_users
     FOREIGN KEY(author_id)
     REFERENCES chat_app.user(id),   
-    CONSTRAINT fk_chatrooms
+    CONSTRAINT fk_chat_rooms
     FOREIGN KEY(room_id)
-    REFERENCES chat_app.chatroom(id)
+    REFERENCES chat_app.chat_room(id)
 );
 
-CREATE TABLE IF NOT EXISTS chat_app.chatroom_user(
+CREATE TABLE IF NOT EXISTS chat_app.chat_room_user(
     id SERIAL PRIMARY KEY,
-    user_id int NOT NULL,
-    room_id int NOT NULL,
+    user_id INT NOT NULL,
+    room_id INT NOT NULL,
     CONSTRAINT fk_users
-    FOREIGN KEY user_id REFERENCES chat_app.user(id),
-    CONSTRAINT fk_chatrooms
-    FOREIGN KEY room_id REFERENCES chat_app.chatroom(id)
+    FOREIGN KEY (user_id) REFERENCES chat_app.user(id),
+    CONSTRAINT fk_chat_rooms
+    FOREIGN KEY (room_id) REFERENCES chat_app.chat_room(id)
 );
 
 
