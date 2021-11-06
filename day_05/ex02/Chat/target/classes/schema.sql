@@ -21,8 +21,8 @@ CREATE TABLE IF NOT EXISTS chat_app.chat_room (
 
 CREATE TABLE IF NOT EXISTS chat_app.message (
     id SERIAL PRIMARY KEY,
-    message_text TEXT NOT NULL,
-    date_and_time timestamp NOT NULL,
+    message_text TEXT,
+    date_and_time timestamp,
     author_id INT,
     room_id INT,
     CONSTRAINT fk_users

@@ -88,10 +88,10 @@ public class MessagesRepositoryImpl implements MessagesRepository {
     public void save(Message message) {
         try (Connection connection = dataSource.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(insertMessageSQL, new String[] {"id"})) {
-            if (!exists(message.getChatroom(), connection)) {
+            if (message.getChatroom() != null && !exists(message.getChatroom(), connection)) {
                 throw new NotSavedSubEntityException("Failed to locate chat_room with id: " + message.getChatroom().getId());
             }
-            if (!exists((message.getAuthor()), connection)) {
+            if (message.getAuthor() != null && !exists((message.getAuthor()), connection)) {
                 throw new NotSavedSubEntityException("Failed to locate user with id: " + message.getAuthor().getId());
             }
             try {
@@ -116,6 +116,9 @@ public class MessagesRepositoryImpl implements MessagesRepository {
         }
     }
     private boolean exists(Room room, Connection connection) throws SQLException {
+        if (room.getId() == null) {
+            return false;
+        }
         try (PreparedStatement preparedStatement = connection.prepareStatement(selectChatRoomSQL)) {
             preparedStatement.setLong(1, room.getId());
             ResultSet resultSet =  preparedStatement.executeQuery();
@@ -124,6 +127,9 @@ public class MessagesRepositoryImpl implements MessagesRepository {
     }
 
     private boolean exists(User user, Connection connection) throws SQLException {
+        if (user.getId() == null) {
+            return false;
+        }
         try (PreparedStatement preparedStatement = connection.prepareStatement(selectChatRoomSQL)) {
             preparedStatement.setLong(1, user.getId());
             ResultSet resultSet =  preparedStatement.executeQuery();
@@ -134,7 +140,15 @@ public class MessagesRepositoryImpl implements MessagesRepository {
     private void configurePreparedStatement(PreparedStatement preparedStatement, Message message) throws SQLException {
         preparedStatement.setString(1, message.getText());
         preparedStatement.setTimestamp(2, message.getTimeStamp());
-        preparedStatement.setLong(3, message.getAuthor().getId());
-        preparedStatement.setLong(4, message.getChatroom().getId());
+        if (message.getAuthor() != null) {
+            preparedStatement.setLong(3, message.getAuthor().getId());
+        } else {
+            preparedStatement.setNull(3, Types.INTEGER);
+        }
+        if (message.getChatroom() != null) {
+            preparedStatement.setLong(4, message.getChatroom().getId());
+        } else {
+            preparedStatement.setNull(4, Types.INTEGER);
+        }
     }
 }

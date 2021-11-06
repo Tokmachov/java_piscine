@@ -44,6 +44,7 @@ public class Program {
             return;
         }
         normalUpdateMessageTest();
+        updateMessageWithNewAuthorAndRoomTest();
         try {
             updateNonExistingMessageTest();
         } catch (Exception e) {
@@ -54,7 +55,10 @@ public class Program {
         } catch (Exception e) {
             System.out.println(e);
         }
+
         updateMessageWithAuthorEqualsNullTest();
+
+
         updateMessageWithRoomEqualsNullTest();
         updateMessageWithAuthorIdEqualsNullTest();
         updateMessageWithRoomIdEqualsNullTest();
@@ -116,7 +120,22 @@ public class Program {
         Message message = messagesRepository.findById(1L).orElseThrow(() -> new RuntimeException("Failed to fetch message from data base"));
         System.out.println(message);
         message.setText("Changed message text");
-        message.setTimeStamp(Timestamp.valueOf(LocalDateTime.of(2000, 10, 11, 10, 10, 10, 10)));
+        message.setTimeStamp(null);
+        messagesRepository.update(message);
+        Message updatedMessage = messagesRepository.findById(1L).orElseThrow(() -> new RuntimeException("Failed to fetch message from data base"));
+        System.out.println(updatedMessage);
+    }
+
+    private static void updateMessageWithNewAuthorAndRoomTest() {
+        System.out.println("---------updateMessageWithNewAuthorAndRoomTest()-----------");
+        Message message = messagesRepository.findById(1L).orElseThrow(() -> new RuntimeException("Failed to fetch message from data base"));
+        System.out.println(message);
+        User user = new User();
+        user.setId(5L);
+        Room room = new Room();
+        room.setId(5L);
+        message.setAuthor(user);
+        message.setChatroom(room);
         messagesRepository.update(message);
         Message updatedMessage = messagesRepository.findById(1L).orElseThrow(() -> new RuntimeException("Failed to fetch message from data base"));
         System.out.println(updatedMessage);

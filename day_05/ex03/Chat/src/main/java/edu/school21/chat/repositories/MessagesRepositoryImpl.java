@@ -120,6 +120,9 @@ public class MessagesRepositoryImpl implements MessagesRepository {
         }
     }
     private boolean exists(Room room, Connection connection) throws SQLException {
+        if (room == null || room.getId() == null) {
+            return false;
+        }
         try (PreparedStatement preparedStatement = connection.prepareStatement(selectChatRoomSQL)) {
             preparedStatement.setLong(1, room.getId());
             ResultSet resultSet =  preparedStatement.executeQuery();
@@ -146,6 +149,12 @@ public class MessagesRepositoryImpl implements MessagesRepository {
     public void update(Message message) {
         try (Connection connection = dataSource.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(updateMessageSQL)) {
+            if(message.getAuthor() != null && message.getAuthor().getId() != null && !exists(message.getAuthor(), connection)) {
+                throw new NotSavedSubEntityException("Exception: Author of the message doesn't exist");
+            }
+            if (message.getChatroom() != null && message.getChatroom().getId() != null && !exists(message.getChatroom(), connection)) {
+                throw new NotSavedSubEntityException("Exception: Created room of the message doesn't exist");
+            }
             configureUpdateStatement(preparedStatement, message);
             if (preparedStatement.executeUpdate() != 1) {
                 throw new RuntimeException("Exception: no message with id: " + message.getId() + " in data base");

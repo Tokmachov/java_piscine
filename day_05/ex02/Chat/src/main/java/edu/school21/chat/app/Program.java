@@ -43,12 +43,22 @@ public class Program {
             System.out.println("Exception occurred when creating and populating schema" + e);
             return;
         }
-        saveNewMessageAndPrintNewMessageIdOrErrorIfFailed(1L, 1L);
-        saveNewMessageAndPrintNewMessageIdOrErrorIfFailed(2L, 2L);
-        saveNewMessageAndPrintNewMessageIdOrErrorIfFailed(10L, 10L);
-        saveNewMessageAndPrintNewMessageIdOrErrorIfFailed(100L, 100L);
-        saveNewMessageAndPrintNewMessageIdOrErrorIfFailed(5L, 5L);
+
+        try {
+            saveNewMessageWithAuthorIdEqualsNullTest();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        try {
+            saveNewMessageWithRoomIdEqualsNullTest();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        saveNewMessageWithAllFieldsEqualsNullTest();
+        saveNewMessageAndPrintNewMessageIdOrErrorIfFailed(1L, 2L);
+        saveNewMessageAndPrintNewMessageIdOrErrorIfFailed(10L, 20L);
     }
+
     private static void saveNewMessageAndPrintNewMessageIdOrErrorIfFailed(Long userId, Long roomId) {
         try {
             User author = new User(userId, "user", "user", new ArrayList<>(), new ArrayList<>());
@@ -60,6 +70,29 @@ public class Program {
             System.err.println(e);
         }
     }
+
+    private static void saveNewMessageWithAuthorIdEqualsNullTest() {
+        User author = new User(null, "user", "user", new ArrayList<>(), new ArrayList<>());
+        Room room = new Room(1L, "room", author, new ArrayList<>());
+        Message message = new Message(null, author, room, "Hello", Timestamp.valueOf(LocalDateTime.now()));
+        messagesRepository.save(message);
+        System.out.println(message.getId());
+    }
+
+    private static void saveNewMessageWithRoomIdEqualsNullTest() {
+        User author = new User(null, "user", "user", new ArrayList<>(), new ArrayList<>());
+        Room room = new Room(null, "room", author, new ArrayList<>());
+        Message message = new Message(1L, author, room, "Hello", Timestamp.valueOf(LocalDateTime.now()));
+        messagesRepository.save(message);
+        System.out.println(message.getId());
+    }
+
+    private static void saveNewMessageWithAllFieldsEqualsNullTest() {
+        Message message = new Message(null, null, null, null, null);
+        messagesRepository.save(message);
+        System.out.println(message.getId());
+    }
+
     private static void createSchema() throws IOException, SQLException {
         try (InputStream DDLInputStream = Program.class.getResourceAsStream(ddlPath)) {
             if (DDLInputStream == null ) throw new IOException("Failed to open " + ddlPath);
