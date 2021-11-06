@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS chat_app.chat_room (
     room_name TEXT NOT NULL UNIQUE,
     room_owner_id INT NOT NULL,
     CONSTRAINT fk_users
-    FOREIGN KEY(room_owner_id)
+    FOREIGN KEY (room_owner_id)
     REFERENCES chat_app.user(id)
 );
 

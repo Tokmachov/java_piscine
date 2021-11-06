@@ -4,7 +4,7 @@ import java.util.*;
 
 public class User {
 
-    public User(Long id, String login, String password, List<Chatroom> createdRooms, List<Chatroom> rooms) {
+    public User(Long id, String login, String password, List<Room> createdRooms, List<Room> rooms) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -37,19 +37,19 @@ public class User {
         this.password = password;
     }
 
-    public List<Chatroom> getCreatedRooms() {
+    public List<Room> getCreatedRooms() {
         return this.createdRooms;
     }
 
-    public void setCreatedRooms(List<Chatroom> createdRooms) {
+    public void setCreatedRooms(List<Room> createdRooms) {
         this.createdRooms = createdRooms;
     }
 
-    public List<Chatroom> getRooms() {
+    public List<Room> getRooms() {
         return this.rooms;
     }
 
-    public void setRooms(List<Chatroom> socializationRooms) {
+    public void setRooms(List<Room> socializationRooms) {
         this.rooms = socializationRooms;
     }
 
@@ -82,6 +82,6 @@ public class User {
     private Long id;
     private String login;
     private String password;
-    private List<Chatroom> createdRooms;
-    private List<Chatroom> rooms;
+    private List<Room> createdRooms;
+    private List<Room> rooms;
 }

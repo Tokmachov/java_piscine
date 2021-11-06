@@ -5,10 +5,10 @@ import java.util.Objects;
 
 public class Message {
 
-    public Message(Long id, User author, Chatroom chatroom, String text, Timestamp timeStamp) {
+    public Message(Long id, User author, Room room, String text, Timestamp timeStamp) {
         this.id = id;
         this.author = author;
-        this.chatroom = chatroom;
+        this.room = room;
         this.text = text;
         this.timeStamp = timeStamp;
     }
@@ -30,12 +30,12 @@ public class Message {
         this.author = author;
     }
 
-    public Chatroom getChatroom() {
-        return this.chatroom;
+    public Room getChatroom() {
+        return this.room;
     }
 
-    public void setChatroom(Chatroom chatroom) {
-        this.chatroom = chatroom;
+    public void setChatroom(Room room) {
+        this.room = room;
     }
 
     public String getText() {
@@ -67,7 +67,7 @@ public class Message {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, author, chatroom, text, timeStamp);
+        return Objects.hash(id, author, room, text, timeStamp);
     }
 
     @Override
@@ -82,7 +82,7 @@ public class Message {
     }
     private Long id;
     private User author;
-    private Chatroom chatroom;
+    private Room room;
     private String text; 
     private Timestamp timeStamp;
 }
