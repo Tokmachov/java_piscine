@@ -19,7 +19,12 @@ INSERT INTO chat_app.chat_room (room_name, room_owner_id) VALUES
     ( 'orange room', (SELECT id from chat_app.user WHERE user_login='Yadiel Vang' ) );
 
 
-
+INSERT INTO chat_app.message (message_text, date_and_time, author_id, room_id) VALUES
+    ( 'Aim high.', '2021-07-06 11:36:07', (SELECT id from chat_app.user WHERE user_login='Damien Figueroa' ), (SELECT id from chat_app.chat_room WHERE room_name='blue room') ),
+    ( 'Act justly.', '2021-07-06 11:35:07', (SELECT id from chat_app.user WHERE user_login='Yadiel Vang'), (SELECT id from chat_app.chat_room WHERE room_name='white room') ),
+    ( 'Chill out', '2021-07-06 11:37:07', (SELECT id from chat_app.user WHERE user_login='Iliana Pitts' ), (SELECT id from chat_app.chat_room WHERE room_name='blue room') ),
+    ( 'Dance today', '2021-07-06 11:38:07', (SELECT id from chat_app.user WHERE user_login='Justus Shah' ), (SELECT id from chat_app.chat_room WHERE room_name='blue room') ),
+    ( 'Don’t panic', '2021-07-06 11:39:07', (SELECT id from chat_app.user WHERE user_login='Ingrid Hawkins' ), (SELECT id from chat_app.chat_room WHERE room_name='blue room') );
 
 INSERT INTO chat_app.chat_room_user (user_id, room_id) VALUES
     ((SELECT id from chat_app.user WHERE user_login='Yadiel Vang'), (SELECT id from chat_app.chat_room WHERE room_name='blue room')),

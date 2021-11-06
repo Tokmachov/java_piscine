@@ -2,15 +2,15 @@ package edu.school21.chat.models;
 
 import java.util.*;
 
-public class Chatroom {
+public class Room {
 
-    public Chatroom(Long id, String name, User owner, List<Message> messages) {
+    public Room(Long id, String name, User owner, List<Message> messages) {
         this.id = id;
         this.name = name;
         this.owner = owner;
         this.messages = messages;
     }
-    public Chatroom() {}
+    public Room() {}
 
     public Long getId() {
         return this.id;
@@ -44,22 +44,22 @@ public class Chatroom {
         this.messages = messages;
     }
 
-    public Chatroom id(Long id) {
+    public Room id(Long id) {
         setId(id);
         return this;
     }
 
-    public Chatroom name(String name) {
+    public Room name(String name) {
         setName(name);
         return this;
     }
 
-    public Chatroom owner(User owner) {
+    public Room owner(User owner) {
         setOwner(owner);
         return this;
     }
 
-    public Chatroom messages(List<Message> messages) {
+    public Room messages(List<Message> messages) {
         setMessages(messages);
         return this;
     }
@@ -68,11 +68,11 @@ public class Chatroom {
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof Chatroom)) {
+        if (!(o instanceof Room)) {
             return false;
         }
-        Chatroom chatroom = (Chatroom) o;
-        return id == chatroom.id && Objects.equals(name, chatroom.name) && Objects.equals(owner, chatroom.owner) && Objects.equals(messages, chatroom.messages);
+        Room room = (Room) o;
+        return id == room.id && Objects.equals(name, room.name) && Objects.equals(owner, room.owner) && Objects.equals(messages, room.messages);
     }
 
     @Override
