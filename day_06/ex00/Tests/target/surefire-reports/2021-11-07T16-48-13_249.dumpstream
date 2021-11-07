@@ -1,0 +1,36 @@
+# Created at 2021-11-07T16:48:14.338
+Nov 07, 2021 4:48:14 PM org.junit.jupiter.engine.discovery.MethodSelectorResolver resolve
+
+# Created at 2021-11-07T16:48:14.338
+WARNING: Possible configuration error: method [public void edu.school21.numbers.NumberWorkerTest.isPrimeForNotPrimes(int)] resulted in multiple TestDescriptors [org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor, org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor]. This is typically the result of annotating a method with multiple competing annotations such as @Test, @RepeatedTest, @ParameterizedTest, @TestFactory, etc.
+
+# Created at 2021-11-07T16:48:14.342
+Nov 07, 2021 4:48:14 PM org.junit.jupiter.engine.discovery.MethodSelectorResolver resolve
+
+# Created at 2021-11-07T16:48:14.343
+WARNING: Possible configuration error: method [public void edu.school21.numbers.NumberWorkerTest.isPrimeForPrimes(int)] resulted in multiple TestDescriptors [org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor, org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor]. This is typically the result of annotating a method with multiple competing annotations such as @Test, @RepeatedTest, @ParameterizedTest, @TestFactory, etc.
+
+# Created at 2021-11-07T16:48:14.346
+Nov 07, 2021 4:48:14 PM org.junit.jupiter.engine.discovery.MethodSelectorResolver resolve
+
+# Created at 2021-11-07T16:48:14.347
+WARNING: Possible configuration error: method [public void edu.school21.numbers.NumberWorkerTest.isPrimeForIncorrectNumbers(int)] resulted in multiple TestDescriptors [org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor, org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor]. This is typically the result of annotating a method with multiple competing annotations such as @Test, @RepeatedTest, @ParameterizedTest, @TestFactory, etc.
+
+# Created at 2021-11-07T16:48:14.418
+Nov 07, 2021 4:48:14 PM org.junit.jupiter.engine.discovery.MethodSelectorResolver resolve
+
+# Created at 2021-11-07T16:48:14.419
+WARNING: Possible configuration error: method [public void edu.school21.numbers.NumberWorkerTest.isPrimeForNotPrimes(int)] resulted in multiple TestDescriptors [org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor, org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor]. This is typically the result of annotating a method with multiple competing annotations such as @Test, @RepeatedTest, @ParameterizedTest, @TestFactory, etc.
+
+# Created at 2021-11-07T16:48:14.431
+Nov 07, 2021 4:48:14 PM org.junit.jupiter.engine.discovery.MethodSelectorResolver resolve
+
+# Created at 2021-11-07T16:48:14.438
+WARNING: Possible configuration error: method [public void edu.school21.numbers.NumberWorkerTest.isPrimeForPrimes(int)] resulted in multiple TestDescriptors [org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor, org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor]. This is typically the result of annotating a method with multiple competing annotations such as @Test, @RepeatedTest, @ParameterizedTest, @TestFactory, etc.
+
+# Created at 2021-11-07T16:48:14.438
+Nov 07, 2021 4:48:14 PM org.junit.jupiter.engine.discovery.MethodSelectorResolver resolve
+
+# Created at 2021-11-07T16:48:14.442
+WARNING: Possible configuration error: method [public void edu.school21.numbers.NumberWorkerTest.isPrimeForIncorrectNumbers(int)] resulted in multiple TestDescriptors [org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor, org.junit.jupiter.engine.descriptor.TestTemplateTestDescriptor]. This is typically the result of annotating a method with multiple competing annotations such as @Test, @RepeatedTest, @ParameterizedTest, @TestFactory, etc.
+

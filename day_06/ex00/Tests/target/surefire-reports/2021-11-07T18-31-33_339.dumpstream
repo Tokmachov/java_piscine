@@ -1,0 +1,12 @@
+# Created at 2021-11-07T18:31:34.547
+Nov 07, 2021 6:31:34 PM org.junit.jupiter.engine.descriptor.DisplayNameUtils determineDisplayName
+
+# Created at 2021-11-07T18:31:34.548
+WARNING: Configuration error: @DisplayName on [public void edu.school21.numbers.NumberWorkerTest.normalOperationTest(int,int)] must be declared with a non-empty value.
+
+# Created at 2021-11-07T18:31:34.631
+Nov 07, 2021 6:31:34 PM org.junit.jupiter.engine.descriptor.DisplayNameUtils determineDisplayName
+
+# Created at 2021-11-07T18:31:34.632
+WARNING: Configuration error: @DisplayName on [public void edu.school21.numbers.NumberWorkerTest.normalOperationTest(int,int)] must be declared with a non-empty value.
+
