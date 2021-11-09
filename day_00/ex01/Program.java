@@ -26,6 +26,7 @@ public class Program {
             System.exit(-1);
         }
     }
+
     private static void printIsPrimeAndPrimeCheckIterations(int num)
     {
         boolean isPrime = true;
@@ -36,15 +37,16 @@ public class Program {
             System.out.println(isPrime + " " + numOfIterations);
             return ;
         }
-        for (int divider = 2; divider * divider <= num; divider++)
-        {
+        int divider = 1;
+        do {
             numOfIterations++;
+            divider++;
             if ((num % divider) == 0)
             {
                 isPrime = false;
                 break ;
             }
-        }
+        } while (divider * divider <= num);
         System.out.println(isPrime + " " + numOfIterations);
     }
 }

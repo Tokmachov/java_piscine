@@ -65,7 +65,7 @@ public class Program {
     private static void printStatisticsOfAllWeeks(long gradesStorage, int weeksCount) {
         int weekNum = 1;
         while (weeksCount != 0) {
-            int divisor = pow(10, weeksCount - 1);
+            long divisor = pow(10, weeksCount - 1);
             long grade = gradesStorage / divisor;
             gradesStorage = gradesStorage % divisor;
             weeksCount--;
@@ -73,10 +73,10 @@ public class Program {
             weekNum++;
         }
     }
-    private static int pow(int base, int pow) {
+    private static long pow(long base, long pow) {
         if (pow == 0)
             return 1;
-        int result = base;
+        long result = base;
         pow--;
         while (pow != 0) {
             result *= base;
