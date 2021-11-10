@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class FileManager {
     private Path currentDir;
-    public FileManager(String currentDir) throws InvalidPathException, IllegalArgumentException {
+    public FileManager(String currentDir) throws IllegalArgumentException {
         Path path = Paths.get(currentDir);
         if (Files.exists(path) == false) {
             throw new IllegalArgumentException("Error: path provided does not exist. Pleas provide existing path");
@@ -55,7 +55,6 @@ public class FileManager {
             String path = parseCurrentDirPath(args[0]);
             if (path == null)
                 throw new IllegalArgumentException("Error: wrong path format. Please provide path of type \"--current-folder=PATH\"");
-            System.out.println(path);
             FileManager fm = new FileManager(path);
             fm.run();
         } catch (InvalidPathException ex) {

@@ -11,12 +11,9 @@ public class Command {
 	public static void mv(Path what, Path where, Path workingDir) {
 		try {
 			what = workingDir.resolve(what);
-			System.out.println("Resolved source: " + what);		
 			where = workingDir.resolve(where);
-			System.out.println("Resolved target: " + where);		
 			if (Files.isDirectory(where)) {
 				where = where.resolve(what.getFileName());
-				System.out.println("Resolved target: " + where);
 			}
 			Path resultPath = Files.move(what, where);
 		} catch (NoSuchFileException ex) {
@@ -78,7 +75,7 @@ public class Command {
 		String[] splited = command.split("\\s+");
 		return Paths.get(splited[1]);
 	}
-	public static Path cd(Path currentDir, Path newDir) throws IllegalArgumentException, IllegalArgumentException {
+	public static Path cd(Path currentDir, Path newDir) {
 		Path resultCurrentDir = currentDir.resolve(newDir);
 		if (Files.exists(resultCurrentDir) == false) {
             throw new IllegalArgumentException("Error: path provided does not exist. Pleas provide existing path");
