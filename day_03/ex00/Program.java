@@ -1,6 +1,5 @@
 import java.lang.Integer;
 import java.lang.NumberFormatException;
-import java.lang.IndexOutOfBoundsException;
 
 public class Program {
     public static void main(String[] av) {
