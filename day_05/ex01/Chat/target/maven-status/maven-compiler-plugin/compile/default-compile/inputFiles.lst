@@ -1,0 +1,6 @@
+/goinfre/sjolynn/java_piscine/day_05/ex01/Chat/src/main/java/edu/school21/chat/app/Program.java
+/goinfre/sjolynn/java_piscine/day_05/ex01/Chat/src/main/java/edu/school21/chat/models/Chatroom.java
+/goinfre/sjolynn/java_piscine/day_05/ex01/Chat/src/main/java/edu/school21/chat/models/Message.java
+/goinfre/sjolynn/java_piscine/day_05/ex01/Chat/src/main/java/edu/school21/chat/repositories/MessagesRepositoryImpl.java
+/goinfre/sjolynn/java_piscine/day_05/ex01/Chat/src/main/java/edu/school21/chat/models/User.java
+/goinfre/sjolynn/java_piscine/day_05/ex01/Chat/src/main/java/edu/school21/chat/repositories/MessagesRepository.java
