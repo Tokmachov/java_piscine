@@ -1,5 +1,4 @@
-
-mkdir -p target
+mkdir target
 cp -r src/resources target
 find src/java -type f -name "*.java" > project_files_list.txt
 javac -cp target -sourcepath src/java -d target @project_files_list.txt
