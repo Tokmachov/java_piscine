@@ -1,3 +1,5 @@
-/goinfre/sjolynn/java_piscine/day_06/ex02/Tests/src/main/java/edu/school21/ProductRepositoryImpl.java
-/goinfre/sjolynn/java_piscine/day_06/ex02/Tests/src/main/java/edu/school21/ProductRepository.java
-/goinfre/sjolynn/java_piscine/day_06/ex02/Tests/src/main/java/edu/school21/App.java
+/Users/oleg/Desktop/java_piscine/day_06/ex02/Tests/src/main/java/edu/school21/repositories/ProductRepository.java
+/Users/oleg/Desktop/java_piscine/day_06/ex02/Tests/src/main/java/edu/school21/numbers/IllegalNumberException.java
+/Users/oleg/Desktop/java_piscine/day_06/ex02/Tests/src/main/java/edu/school21/repositories/ProductRepositoryImpl.java
+/Users/oleg/Desktop/java_piscine/day_06/ex02/Tests/src/main/java/edu/school21/numbers/NumberWorker.java
+/Users/oleg/Desktop/java_piscine/day_06/ex02/Tests/src/main/java/edu/school21/models/Product.java

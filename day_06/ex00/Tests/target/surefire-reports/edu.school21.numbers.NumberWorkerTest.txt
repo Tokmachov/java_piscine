@@ -1,11 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.school21.numbers.NumberWorkerTest
 -------------------------------------------------------------------------------
-Tests run: 19, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.357 s <<< FAILURE! - in edu.school21.numbers.NumberWorkerTest
-isPrimeForNotPrimes{int}[1]  Time elapsed: 0.112 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
-	at edu.school21.numbers.NumberWorkerTest.isPrimeForNotPrimes(NumberWorkerTest.java:23)
-
-normalOperationTest{int, int}  Time elapsed: 0.039 s  <<< ERROR!
-org.junit.platform.commons.PreconditionViolationException: Classpath resource [digitSumTestValues.csv] does not exist
-
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.299 s - in edu.school21.numbers.NumberWorkerTest

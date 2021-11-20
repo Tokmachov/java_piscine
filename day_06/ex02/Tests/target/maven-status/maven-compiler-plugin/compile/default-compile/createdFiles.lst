@@ -1,1 +1,5 @@
-Product.class
+edu/school21/repositories/ProductRepository.class
+edu/school21/numbers/NumberWorker.class
+edu/school21/models/Product.class
+edu/school21/numbers/IllegalNumberException.class
+edu/school21/repositories/ProductRepositoryImpl.class

@@ -1,4 +1,4 @@
--- noinspection SqlDialectInspectionForFile
+    -- noinspection SqlDialectInspectionForFile
 
 -- noinspection SqlNoDataSourceInspectionForFile
 
